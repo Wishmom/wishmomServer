@@ -114,7 +114,7 @@ export const forgotPassword = TryCatch(async (req,res) => {
     });
     const token = jwt.sign({email}, process.env.Forgot_Secret);
     const data = {email,token};
-     await sendForgotMail("RJ Pathshala", data);
+     await sendForgotMail("Wishmom", data);
 
      user.resetPasswordExpire = Date.now() + 5 * 60 *1000;
      await user.save();
