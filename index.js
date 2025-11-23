@@ -13,10 +13,16 @@ const app = express();
 // using middleware
 app.use(express.json());
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://wishmom.netlify.app"
+];
+
 app.use(cors({
-    origin: process.env.frontendurl, // Allow requests from your frontend URL
-    credentials: true, // Allow cookies and credentials
+    origin: allowedOrigins,
+    credentials: true,
 }));
+
 
 const port = process.env.PORT;
 
